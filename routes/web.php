@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('articles', ArticleController::class);
+});
 
 Route::get('/', fn() => view('home'))->name('home');
 
@@ -16,6 +22,3 @@ Route::get('/dashboard', fn() => view('dashboard'))
 Route::get('/admin', fn() => view('admin'))
     ->middleware(['auth','role:admin'])
     ->name('admin');
-
-
-

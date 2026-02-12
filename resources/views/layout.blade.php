@@ -8,6 +8,7 @@
 <nav>
     <a href="{{ route('home') }}">Home</a> |
     @auth
+        <a href="{{ route('articles.index') }}">Articles</a> |
         <a href="{{ route('dashboard') }}">Dashboard</a> |
         <a href="{{ route('admin') }}">Admin</a> |
         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
